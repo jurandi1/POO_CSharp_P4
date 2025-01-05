@@ -19,6 +19,16 @@ namespace POO_CSharp_P4
             // Produto p = new Produto(nome, preco, quantidade);
 
             Produto p = new Produto(nome, preco);
+
+            Produto p2 = new Produto();
+
+            //Sintaxe alternativa para inicializar valores
+            Produto p3 = new Produto { 
+                Nome = "TV"
+                , Preco = 500.00
+                , Quantidade = 10
+            };
+
             Console.WriteLine();
             Console.WriteLine("Dados do produto: " + p);
 
