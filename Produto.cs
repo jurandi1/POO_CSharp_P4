@@ -8,12 +8,25 @@ namespace POO_CSharp_P4
         public double Preco;
         public int Quantidade;
 
-        //adicionando construtor
+        //Adicionando construtores
+        //sobrecarga oferecendo mais de uma operação com o mesmo nome , porém com diferentes listas de
+        //parâmetros.
+        public Produto() { }
+        //sobrecarga oferecendo mais de uma operação com o mesmo nome , porém com diferentes listas de
+        //parâmetros.
         public Produto(string nome, double preco, int quantidade)
         {
             Nome = nome;
             Preco = preco;
             Quantidade = quantidade;
+        }
+        //sobrecarga oferecendo mais de uma operação com o mesmo nome , porém com diferentes listas de
+        //parâmetros.
+        public Produto(string nome, double preco)
+        {
+            Nome = nome;
+            Preco = preco;
+            Quantidade = 1;
         }
 
         public double ValorTotalEmEstoque()
