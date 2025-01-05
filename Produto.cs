@@ -8,6 +8,14 @@ namespace POO_CSharp_P4
         public double Preco;
         public int Quantidade;
 
+        //adicionando construtor
+        public Produto(string nome, double preco, int quantidade)
+        {
+            Nome = nome;
+            Preco = preco;
+            Quantidade = quantidade;
+        }
+
         public double ValorTotalEmEstoque()
         {
             return Preco * Quantidade;
