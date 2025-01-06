@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Runtime.Intrinsics.X86;
 
 namespace POO_CSharp_P4
 {
@@ -11,7 +12,8 @@ namespace POO_CSharp_P4
         //Adicionando construtores
         //sobrecarga oferecendo mais de uma operação com o mesmo nome , porém com diferentes listas de
         //parâmetros.
-        public Produto() {
+        public Produto()
+        {
             _quantidade = 10;
         }
         //sobrecarga oferecendo mais de uma operação com o mesmo nome , porém com diferentes listas de
@@ -28,29 +30,56 @@ namespace POO_CSharp_P4
             _quantidade = quantidade;
         }
 
-        //implementando métodos get e set(encapsulamento)
-        public string GetNome()
+        // Properties
+        // Propriedades
+        //• https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/classes-and-structs/properties
+        //• São definições de métodos encapsulados, porém expondo uma
+        //sintaxe similar à de atributos e não de métodos
+        public string Nome
         {
-            return _nome;
-        }
-
-        public void SetNome(string nome)
-        {
-            //Vantagens do encapsulamento aplicando lógica
-            if (nome != "" && nome.Length > 1)
+            get { return _nome; }
+            set
             {
-                _nome = nome;
+                if (value != "" && value.Length > 1)
+                {
+                    _nome = value;
+                }
             }
         }
 
-        public double GetPreco()
+        public double Preco
         {
-            return _preco;
+            get { return _preco; }
+        }
+        public int Quantidade
+        {
+            get { return _quantidade; }
         }
 
-        public int GetQuantidade() {
-            return _quantidade;
-        }
+        //implementando métodos get e set(encapsulamento)
+        //public string GetNome()
+        //{
+        //    return _nome;
+        //}
+
+        //public void SetNome(string nome)
+        //{
+        //    //Vantagens do encapsulamento aplicando lógica
+        //    if (nome != "" && nome.Length > 1)
+        //    {
+        //        _nome = nome;
+        //    }
+        //}
+
+        //public double GetPreco()
+        //{
+        //    return _preco;
+        //}
+
+        //public int GetQuantidade()
+        //{
+        //    return _quantidade;
+        //}
 
         public double ValorTotalEmEstoque()
         {
