@@ -5,29 +5,33 @@ namespace POO_CSharp_P4
 {
     internal class Produto
     {
+        //Possui lógica particular
         private string _nome;
-        private double _preco;
-        private int _quantidade;
+        //Propriedades autoimplementadas
+        //• É uma forma simplificada de se declarar propriedades que não
+        //necessitam lógicas particulares para as operações get e set.
+        public double Preco { get; private set; }
+        public int Quantidade { get; private set; }
 
         //Adicionando construtores
         //sobrecarga oferecendo mais de uma operação com o mesmo nome , porém com diferentes listas de
         //parâmetros.
         public Produto()
         {
-            _quantidade = 10;
+            Quantidade = 10;
         }
         //sobrecarga oferecendo mais de uma operação com o mesmo nome , porém com diferentes listas de
         //parâmetros.
         public Produto(string nome, double preco) : this()
         {
             _nome = nome;
-            _preco = preco;
+            Preco = preco;
         }
         //sobrecarga oferecendo mais de uma operação com o mesmo nome , porém com diferentes listas de
         //parâmetros.
         public Produto(string nome, double preco, int quantidade) : this(nome, preco)
         {
-            _quantidade = quantidade;
+            Quantidade = quantidade;
         }
 
         // Properties
@@ -40,6 +44,7 @@ namespace POO_CSharp_P4
             get { return _nome; }
             set
             {
+                //lógica particular
                 if (value != "" && value.Length > 1)
                 {
                     _nome = value;
@@ -47,14 +52,6 @@ namespace POO_CSharp_P4
             }
         }
 
-        public double Preco
-        {
-            get { return _preco; }
-        }
-        public int Quantidade
-        {
-            get { return _quantidade; }
-        }
 
         //implementando métodos get e set(encapsulamento)
         //public string GetNome()
@@ -83,26 +80,26 @@ namespace POO_CSharp_P4
 
         public double ValorTotalEmEstoque()
         {
-            return _preco * _quantidade;
+            return Preco * Quantidade;
         }
 
         public void AdicionarProdutos(int quantidade)
         {
-            _quantidade += quantidade;
+            Quantidade += quantidade;
         }
 
         public void RemoverProdutos(int quantidade)
         {
-            _quantidade -= quantidade;
+            Quantidade -= quantidade;
         }
 
         public override string ToString()
         {
             return _nome
             + ", $ "
-            + _preco.ToString("F2", CultureInfo.InvariantCulture)
+            + Preco.ToString("F2", CultureInfo.InvariantCulture)
             + ", "
-            + _quantidade
+            + Quantidade
             + " unidades, Total: $ "
             + ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture);
         }
